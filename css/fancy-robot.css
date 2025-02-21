@@ -1,4 +1,3 @@
-
 .robot-container {
   width: 320px;
   height: 380px;
@@ -25,6 +24,11 @@
 }
 
 
+@keyframes resizeEye {
+  0%, 100% { width: 50px; height: 50px; }
+  50% { width: 60px; height: 30px; }
+}
+
 .robot-eye-left {
   width: 50px;
   height: 50px;
@@ -34,8 +38,14 @@
   position: absolute;
   top: 30%;
   left: 20%;
+  animation: resizeEye 1.5s ease-in-out infinite;
 }
 
+
+@keyframes blinkEye {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 .robot-eye-right {
   width: 60px;
@@ -44,8 +54,15 @@
   position: absolute;
   top: 30%;
   right: 20%;
+  animation: blinkEye 1s infinite;
 }
 
+
+@keyframes rotateEars {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+  100% { transform: rotate(0deg); }
+}
 
 .robot-ear-left,
 .robot-ear-right {
@@ -57,6 +74,7 @@
   top: 40%;
   opacity: 0.5;
   font-size: 1rem;
+  animation: rotateEars 1.5s ease-in-out infinite;
 }
 
 .robot-ear-left {
@@ -67,6 +85,14 @@
   right: -3.125rem;
 }
 
+
+@keyframes wiggleNose {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) rotate(5deg); }
+  50% { transform: translate(-50%, -50%) rotate(-5deg); }
+  75% { transform: translate(-50%, -50%) rotate(5deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
 
 .robot-nose {
   width: 1.875rem;
@@ -79,8 +105,17 @@
   transform: translate(-50%, -50%);
   opacity: 0.5;
   font-size: 1rem;
+  transition: transform 0.3s ease-in-out;
 }
 
+.robot-nose:hover {
+  animation: wiggleNose 0.5s ease-in-out;
+}
+
+@keyframes teethColorChange {
+  0%, 100% { background-color: white; }
+  50% { background-color: lightblue; }
+}
 
 .robot-teeth {
   width: 140px;
@@ -93,6 +128,7 @@
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
+  animation: teethColorChange 1.5s infinite ease-in-out;
 }
 
 
@@ -101,6 +137,11 @@
   height: 15px;
   background-color: white;
   border-radius: 2px;
+}
+
+@keyframes hairMovement {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(5px); }
 }
 
 .robot-hair-style {
@@ -112,6 +153,7 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
+  animation: hairMovement 1.5s ease-in-out infinite;
 }
 
 .robot-hair-one {
